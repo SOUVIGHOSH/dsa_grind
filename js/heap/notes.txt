@@ -1,0 +1,43 @@
+Heap is user in Top K problem , the K-th element problem
+
+Heap TC
+
+Heap method	Time complexity	Space complexity
+Construct a Heap	O(N)O(N)	O(N)O(N)
+Insert an element	O(\log N)O(logN)	O(1)O(1)
+Get the top element	O(1)O(1)	O(1)O(1)
+Delete the top element	O(\log N)O(logN)	O(1)O(1)
+Get the size of a Heap	O(1)O(1)	O(1)O(1)
+
+so most of the application uses heap has nlogn time complexity
+
+
+Solution of the Top K largest elements:
+
+Construct a Min Heap with size K.
+Add elements to the Min Heap one by one.
+When there are K elements in the “Min Heap”, compare the current element with the top element of the Heap:
+If the current element is no larger than the top element of the Heap, drop it and - proceed to the next element.
+If the current element is larger than the Heap’s top element, delete the Heap’s top element, and add the current element to the Min Heap.
+Repeat Steps 2 and 3 until all elements have been iterated.
+Now the K elements in the Min Heap are the K largest elements.
+
+Solution of the Top K smallest elements:
+
+Construct a Max Heap with size K.
+Add elements to the Max Heap one by one.
+When there are K elements in the “Max Heap”, compare the current element with the top element of the Heap:
+If the current element is no smaller than the top element of the Heap, drop it and proceed to the next element.
+If the current element is smaller than the top element of the Heap, delete the top element of the Heap, and add the current element to the Max Heap.
+Repeat Steps 2 and 3 until all elements have been iterated.
+Now the K elements in the Max Heap are the K smallest elements.
+
+Complexity Analysis:
+
+Time complexity: O(N \log K)O(NlogK)
+Time complexity: O(N \log K)O(NlogK)
+
+Steps one and two will require O(K \log K)O(KlogK) time if the elements are added one by one to the heap, however using the heapify method, these two steps could be accomplished in O(K)O(K) time. Steps 3 and 4 will require O(\log K)O(logK) time each time an element must be replaced in the heap. In the worst-case scenario, this will be done N - KN−K times. Thus the total time complexity is O((N - K) \log K + K \log K)O((N−K)logK+KlogK) which simplifies to O(N \log K)O(NlogK).
+Space complexity: O(K)O(K)
+
+The heap will contain at most KK elements at any given time.
